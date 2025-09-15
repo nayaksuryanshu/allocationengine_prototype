@@ -1,36 +1,58 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Brain, BarChart3, Zap, Settings, Target, Clock, Users, DollarSign } from 'lucide-react';
+import { ArrowRight, Brain, BarChart3, Zap, Settings, Target, Clock, Users, DollarSign, UserCheck, TrendingDown, MessageCircle, Shuffle, Radio } from 'lucide-react';
 
 const Home = () => {
     const features = [
         {
+            icon: <UserCheck className="h-8 w-8" />,
+            title: "Smart Matching Algorithm",
+            description: "Advanced AI-powered matching system for optimal student-course and resource allocation"
+        },
+        {
+            icon: <TrendingDown className="h-8 w-8" />,
+            title: "Dropout Prediction",
+            description: "Predictive analytics to identify at-risk students and enable proactive interventions"
+        },
+        {
+            icon: <Shuffle className="h-8 w-8" />,
+            title: "Intelligent Reallocation",
+            description: "Dynamic resource reallocation based on real-time demand and performance metrics"
+        },
+        {
             icon: <Brain className="h-8 w-8" />,
-            title: "Smart AI Algorithms",
-            description: "Advanced machine learning models for optimal resource allocation and distribution"
+            title: "AI Career Chatbot",
+            description: "24/7 AI-powered career guidance and counseling for personalized student support"
+        },
+        {
+            icon: <Radio className="h-8 w-8" />,
+            title: "Real-time Communication",
+            description: "Live communication system for instant coordination and collaboration"
         },
         {
             icon: <BarChart3 className="h-8 w-8" />,
-            title: "Real-time Analytics",
-            description: "Live data visualization and performance metrics for informed decision making"
+            title: "Advanced Analytics",
+            description: "Comprehensive data visualization and performance insights for informed decisions"
         },
         {
             icon: <Zap className="h-8 w-8" />,
-            title: "Efficient Processing",
-            description: "Lightning-fast allocation processing with minimal computational overhead"
+            title: "Lightning Processing",
+            description: "High-speed processing for real-time allocation and matching operations"
         },
         {
             icon: <Settings className="h-8 w-8" />,
-            title: "Customizable Rules",
-            description: "Flexible configuration options to adapt to various allocation scenarios"
+            title: "Flexible Configuration",
+            description: "Customizable parameters and rules to adapt to various institutional needs"
         }
     ];
 
     const stats = [
-        { icon: <Target className="h-6 w-6" />, value: "99.5%", label: "Allocation Accuracy" },
+        { icon: <Target className="h-6 w-6" />, value: "99.5%", label: "Matching Accuracy" },
         { icon: <Clock className="h-6 w-6" />, value: "50ms", label: "Response Time" },
-        { icon: <Users className="h-6 w-6" />, value: "10K+", label: "Resources Managed" },
-        { icon: <DollarSign className="h-6 w-6" />, value: "24/7", label: "System Availability" }
+        { icon: <Users className="h-6 w-6" />, value: "10K+", label: "Students Managed" },
+        { icon: <TrendingDown className="h-6 w-6" />, value: "85%", label: "Dropout Prevention" },
+        { icon: <MessageCircle className="h-6 w-6" />, value: "24/7", label: "AI Support" },
+        { icon: <DollarSign className="h-6 w-6" />, value: "99.9%", label: "System Uptime" }
     ];
 
     return (
@@ -57,12 +79,12 @@ const Home = () => {
                                         WebkitTextFillColor: 'transparent'
                                     }}
                                 >
-                                    Allocation Engine
+                                    Education Platform
                                 </span>
                             </h1>
                             <p className="text-xl lg:text-2xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.9)' }}>
-                                Smart Innovation Hackathon 2024 - Revolutionizing resource allocation 
-                                with artificial intelligence and machine learning algorithms
+                                Smart Innovation Hackathon 2024 - Complete educational ecosystem with 
+                                matching algorithms, dropout prediction, AI career guidance, and real-time collaboration
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Link 
@@ -94,16 +116,30 @@ const Home = () => {
                                         e.target.style.color = 'white';
                                     }}
                                 >
-                                    Learn More
+                                    Try AI Chatbot
                                 </button>
                             </div>
                         </div>
                         
-                        {/* Simple visual element */}
+                        {/* Enhanced visual element */}
                         <div className="relative h-96 lg:h-[500px] flex items-center justify-center">
-                            <div className="text-center">
-                                <Brain className="h-32 w-32 mx-auto mb-4 text-white opacity-80" />
-                                <p className="text-xl text-white opacity-70">AI-Powered Intelligence</p>
+                            <div className="grid grid-cols-2 gap-8 text-center">
+                                <div className="flex flex-col items-center">
+                                    <UserCheck className="h-16 w-16 text-white opacity-80 mb-2" />
+                                    <p className="text-sm text-white opacity-70">Smart Matching</p>
+                                </div>
+                                <div className="flex flex-col items-center">
+                                    <TrendingDown className="h-16 w-16 text-white opacity-80 mb-2" />
+                                    <p className="text-sm text-white opacity-70">Dropout Prevention</p>
+                                </div>
+                                <div className="flex flex-col items-center">
+                                    <MessageCircle className="h-16 w-16 text-white opacity-80 mb-2" />
+                                    <p className="text-sm text-white opacity-70">AI Career Guidance</p>
+                                </div>
+                                <div className="flex flex-col items-center">
+                                    <Radio className="h-16 w-16 text-white opacity-80 mb-2" />
+                                    <p className="text-sm text-white opacity-70">Real-time Comm</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -115,11 +151,11 @@ const Home = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
-                            Key Features
+                            Comprehensive Features
                         </h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Discover the powerful capabilities that make our AI allocation engine 
-                            the perfect solution for your resource management needs.
+                            A complete AI-powered educational platform with matching algorithms, 
+                            predictive analytics, career guidance, and seamless communication.
                         </p>
                     </div>
                     
@@ -153,7 +189,11 @@ const Home = () => {
             {/* Stats Section */}
             <section className="py-20" style={{ background: 'linear-gradient(to right, #f9fafb, #f3f4f6)' }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Performance Metrics</h2>
+                        <p className="text-lg text-gray-600">Real-world impact and system performance</p>
+                    </div>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {stats.map((stat, index) => (
                             <div 
                                 key={index} 
