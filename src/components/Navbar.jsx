@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Bot, BarChart3, LogIn, UserPlus } from 'lucide-react';
+import logo from '../assets/logo.png';
 // Register link is already implemented in the component below
 // No additional code needed at this placeholder location
 
@@ -20,12 +21,21 @@ const Navbar = () => {
                 <div className="flex justify-between items-center h-20">
                     {/* Logo */}
                     <Link to="/" className="flex items-center space-x-3 group">
-                        <div className="p-2 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg group-hover:shadow-lg transition-all duration-200">
-                            <Bot className="h-6 w-6 text-white" />
+                        <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg group-hover:shadow-lg transition-all duration-200">
+                            <img 
+                                src={logo} 
+                                alt="SkillSync Logo" 
+                                className="h-8 w-8 object-contain filter brightness-110 contrast-110 transform group-hover:scale-105 transition-all duration-200" 
+                            />
                         </div>
-                        <span className="text-xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-                            AI Allocation Engine
-                        </span>
+                        <div className="flex flex-col">
+                            <span className="text-xl font-bold text-gray-900">
+                                SkillSync
+                            </span>
+                            <span className="text-xs text-gray-500 font-medium">
+                                Smart Resource Allocation
+                            </span>
+                        </div>
                     </Link>
                     
                     {/* Desktop Navigation */}
@@ -34,8 +44,8 @@ const Navbar = () => {
                             to="/" 
                             className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                                 isActive('/') 
-                                    ? 'bg-primary-100 text-primary-700' 
-                                    : 'text-gray-600 hover:text-primary-600 hover:bg-gray-100'
+                                    ? 'bg-blue-100 text-blue-700' 
+                                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
                             }`}
                         >
                             Home
@@ -44,8 +54,8 @@ const Navbar = () => {
                             to="/dashboard" 
                             className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                                 isActive('/dashboard') 
-                                    ? 'bg-primary-100 text-primary-700' 
-                                    : 'text-gray-600 hover:text-primary-600 hover:bg-gray-100'
+                                    ? 'bg-blue-100 text-blue-700' 
+                                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
                             }`}
                         >
                             <BarChart3 className="h-4 w-4" />
@@ -53,13 +63,13 @@ const Navbar = () => {
                         </Link>
                         <a 
                             href="#about" 
-                            className="text-gray-600 hover:text-primary-600 px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100"
+                            className="text-gray-600 hover:text-blue-600 px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100"
                         >
                             About
                         </a>
                         <a 
                             href="#contact" 
-                            className="text-gray-600 hover:text-primary-600 px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100"
+                            className="text-gray-600 hover:text-blue-600 px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100"
                         >
                             Contact
                         </a>
@@ -67,8 +77,8 @@ const Navbar = () => {
                             to="/login" 
                             className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                                 isActive('/login') 
-                                    ? 'bg-primary-100 text-primary-700' 
-                                    : 'text-gray-600 hover:text-primary-600 hover:bg-gray-100'
+                                    ? 'bg-blue-100 text-blue-700' 
+                                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
                             }`}
                         >
                             <LogIn className="h-4 w-4" />
@@ -76,8 +86,8 @@ const Navbar = () => {
                         </Link>
                         <Link 
                             to="/register" 
-                            className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-primary-600 text-white hover:bg-primary-700 ${
-                                isActive('/register') ? 'bg-primary-700' : ''
+                            className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-blue-600 text-white hover:bg-blue-700 ${
+                                isActive('/register') ? 'bg-blue-700' : ''
                             }`}
                         >
                             <UserPlus className="h-4 w-4" />
@@ -88,7 +98,7 @@ const Navbar = () => {
                     {/* Mobile menu button */}
                     <button
                         onClick={toggleMenu}
-                        className="md:hidden p-2 rounded-lg text-gray-600 hover:text-primary-600 hover:bg-gray-100 transition-colors duration-200"
+                        className="md:hidden p-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
                     >
                         {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                     </button>
@@ -102,8 +112,8 @@ const Navbar = () => {
                                 to="/" 
                                 className={`px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
                                     isActive('/') 
-                                        ? 'bg-primary-100 text-primary-700' 
-                                        : 'text-gray-600 hover:text-primary-600 hover:bg-gray-100'
+                                        ? 'bg-blue-100 text-blue-700' 
+                                        : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
                                 }`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
@@ -113,8 +123,8 @@ const Navbar = () => {
                                 to="/dashboard" 
                                 className={`flex items-center space-x-2 px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
                                     isActive('/dashboard') 
-                                        ? 'bg-primary-100 text-primary-700' 
-                                        : 'text-gray-600 hover:text-primary-600 hover:bg-gray-100'
+                                        ? 'bg-blue-100 text-blue-700' 
+                                        : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
                                 }`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
@@ -123,14 +133,14 @@ const Navbar = () => {
                             </Link>
                             <a 
                                 href="#about" 
-                                className="text-gray-600 hover:text-primary-600 px-4 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100"
+                                className="text-gray-600 hover:text-blue-600 px-4 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 About
                             </a>
                             <a 
                                 href="#contact" 
-                                className="text-gray-600 hover:text-primary-600 px-4 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100"
+                                className="text-gray-600 hover:text-blue-600 px-4 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Contact
@@ -139,8 +149,8 @@ const Navbar = () => {
                                 to="/login" 
                                 className={`flex items-center space-x-2 px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
                                     isActive('/login') 
-                                        ? 'bg-primary-100 text-primary-700' 
-                                        : 'text-gray-600 hover:text-primary-600 hover:bg-gray-100'
+                                        ? 'bg-blue-100 text-blue-700' 
+                                        : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
                                 }`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
@@ -149,8 +159,8 @@ const Navbar = () => {
                             </Link>
                             <Link 
                                 to="/register" 
-                                className={`flex items-center space-x-2 px-4 py-3 rounded-lg font-medium transition-all duration-200 bg-primary-600 text-white hover:bg-primary-700 ${
-                                    isActive('/register') ? 'bg-primary-700' : ''
+                                className={`flex items-center space-x-2 px-4 py-3 rounded-lg font-medium transition-all duration-200 bg-blue-600 text-white hover:bg-blue-700 ${
+                                    isActive('/register') ? 'bg-blue-700' : ''
                                 }`}
                                 onClick={() => setIsMenuOpen(false)}
                             >

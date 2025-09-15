@@ -79,7 +79,7 @@ const Home = () => {
                                         WebkitTextFillColor: 'transparent'
                                     }}
                                 >
-                                    Education Platform
+                                    Allocation Engine
                                 </span>
                             </h1>
                             <p className="text-xl lg:text-2xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.9)' }}>
