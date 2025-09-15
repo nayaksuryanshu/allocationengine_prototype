@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Bot, BarChart3, LogIn, UserPlus } from 'lucide-react';
+// Register link is already implemented in the component below
+// No additional code needed at this placeholder location
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
