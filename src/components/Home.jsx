@@ -83,7 +83,7 @@ const Home = () => {
                                 </span>
                             </h1>
                             <p className="text-xl lg:text-2xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.9)' }}>
-                                Smart Innovation Hackathon 2024 - Complete educational ecosystem with 
+                                Smart Innovation Hackathon 2025 - Complete educational ecosystem with 
                                 matching algorithms, dropout prediction, AI career guidance, and real-time collaboration
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">

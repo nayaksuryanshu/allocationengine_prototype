@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { BarChart3, TrendingUp, Users, DollarSign, Server, Database, HardDrive, Activity, Lightbulb, CheckCircle, Brain, GraduationCap, Building2, Star, Clock, Target, Award, MapPin, Filter, Search } from 'lucide-react';
+import { BarChart3, TrendingUp, Users, DollarSign, Server, Database, HardDrive, Activity, Lightbulb, CheckCircle, Brain, GraduationCap, Building2, Star, Clock, Target, Award, MapPin, Filter, Search, Shield, PieChart, AlertTriangle, Eye } from 'lucide-react';
 
 const Dashboard = () => {
-    const [userType, setUserType] = useState('student'); // 'student' or 'company'
+    const [userType, setUserType] = useState('student'); // 'student', 'company', or 'admin'
     
     // Student data
     const [studentData] = useState({
         profile: {
-            name: "John Doe",
-            university: "MIT",
+            name: "Suryanshu",
+            university: "Medicaps",
             gpa: 3.8,
             skills: ["React", "Python", "Machine Learning", "Data Science"],
             year: "3rd Year"
@@ -20,10 +20,10 @@ const Dashboard = () => {
     });
 
     const [companyRankings] = useState([
-        { id: 1, company: "Google", role: "Software Engineer Intern", matchScore: 92, status: 'applied', salary: '$8000/month', location: 'Mountain View, CA' },
-        { id: 2, company: "Microsoft", role: "Data Science Intern", matchScore: 89, status: 'interview', salary: '$7500/month', location: 'Redmond, WA' },
-        { id: 3, company: "Amazon", role: "ML Engineer Intern", matchScore: 85, status: 'waitlist', salary: '$7200/month', location: 'Seattle, WA' },
-        { id: 4, company: "Apple", role: "iOS Developer Intern", matchScore: 78, status: 'recommended', salary: '$8200/month', location: 'Cupertino, CA' },
+        { id: 1, company: "TCS", role: "Software Engineer Intern", matchScore: 92, status: 'applied', stipend: '8000/month', location: 'Mountain View, CA' },
+        { id: 2, company: "Wipro", role: "Data Science Intern", matchScore: 89, status: 'interview', stipend: '7500/month', location: 'Redmond, WA' },
+        { id: 3, company: "Amazon", role: "ML Engineer Intern", matchScore: 85, status: 'waitlist', stipend: '7200/month', location: 'Seattle, WA' },
+        { id: 4, company: "Cognizant", role: "iOS Developer Intern", matchScore: 78, status: 'recommended', stipend: '8200/month', location: 'Cupertino, CA' },
     ]);
 
     // Company data
@@ -41,12 +41,51 @@ const Dashboard = () => {
     });
 
     const [studentRankings] = useState([
-        { id: 1, name: "Alice Johnson", university: "Stanford", gpa: 3.9, skills: ["React", "Node.js", "AWS"], matchScore: 94, status: 'offer_sent', year: "4th Year" },
-        { id: 2, name: "Bob Smith", university: "MIT", gpa: 3.7, skills: ["Python", "ML", "TensorFlow"], matchScore: 91, status: 'interviewed', year: "3rd Year" },
-        { id: 3, name: "Carol Davis", university: "Berkeley", gpa: 3.8, skills: ["Java", "Spring", "Docker"], matchScore: 88, status: 'waitlist', year: "4th Year" },
-        { id: 4, name: "David Wilson", university: "CMU", gpa: 3.6, skills: ["JavaScript", "React", "MongoDB"], matchScore: 85, status: 'applied', year: "2nd Year" },
-        { id: 5, name: "Eva Brown", university: "Caltech", gpa: 3.9, skills: ["Python", "Data Science", "R"], matchScore: 82, status: 'screening', year: "3rd Year" },
+        { id: 1, name: "Suryanshu", university: "Acropolis", gpa: 6.9, skills: ["React", "Node.js", "AWS"], matchScore: 44, status: 'offer_sent', year: "4th Year" },
+        { id: 2, name: "Tanvi", university: "SAGE", gpa: 7.7, skills: ["Python", "ML", "TensorFlow"], matchScore: 61, status: 'interviewed', year: "3rd Year" },
+        { id: 3, name: "Snehal", university: "Medicaps", gpa: 8.8, skills: ["Java", "Spring", "Docker"], matchScore: 38, status: 'waitlist', year: "4th Year" },
+        { id: 4, name: "Tanisha", university: "CMU", gpa: 7.6, skills: ["JavaScript", "React", "MongoDB"], matchScore: 85, status: 'applied', year: "2nd Year" },
+        { id: 5, name: "Hardik", university: "Caltech", gpa: 6.9, skills: ["Python", "Data Science", "R"], matchScore: 92, status: 'screening', year: "3rd Year" },
     ]);
+
+    // Admin data
+    const [adminData] = useState({
+        systemMetrics: {
+            totalStudents: 12847,
+            totalCompanies: 856,
+            activeApplications: 34521,
+            successfulMatches: 8934,
+            systemUptime: 99.7
+        },
+        transparencyMetrics: {
+            algorithmAccuracy: 87.3,
+            biasScore: 12.4,
+            fairnessIndex: 8.7,
+            dataQuality: 94.2
+        },
+        universityStats: [
+            { name: "Medicaps", students: 2341, placements: 89, avgStipend: "7800" },
+            { name: "IPS", students: 2156, placements: 91, avgStipend: "8200" },
+            { name: "SAGE", students: 1987, placements: 85, avgStipend: "7600" },
+            { name: "CMU", students: 1654, placements: 88, avgStipend: "7900" },
+            { name: "Caltech", students: 987, placements: 92, avgStipend: "8100" }
+        ],
+        companyStats: [
+            { name: "TCS", applications: 3456, hired: 234, avgMatchScore: 89.2 },
+            { name: "Wipro", applications: 2987, hired: 198, avgMatchScore: 86.7 },
+            { name: "Infosys", applications: 4123, hired: 287, avgMatchScore: 84.3 },
+            { name: "Apple", applications: 2654, hired: 176, avgMatchScore: 87.9 },
+            { name: "Meta", applications: 2341, hired: 156, avgMatchScore: 85.6 }
+        ],
+        allocationTrends: [
+            { month: "Jan", students: 1200, companies: 145, matches: 890 },
+            { month: "Feb", students: 1350, companies: 162, matches: 1023 },
+            { month: "Mar", students: 1580, companies: 178, matches: 1245 },
+            { month: "Apr", students: 1890, companies: 201, matches: 1456 },
+            { month: "May", students: 2100, companies: 223, matches: 1678 },
+            { month: "Jun", students: 2345, companies: 245, matches: 1834 }
+        ]
+    });
 
     const getStatusColor = (status) => {
         switch (status) {
@@ -68,7 +107,78 @@ const Dashboard = () => {
         return 'text-red-600';
     };
 
-    // Student Dashboard Component
+    const getHealthColor = (score) => {
+        if (score >= 90) return 'text-green-600';
+        if (score >= 70) return 'text-yellow-600';
+        return 'text-red-600';
+    };
+
+    // Simple Bar Chart Component
+    const SimpleBarChart = ({ data, title }) => (
+        <div className="bg-white rounded-lg p-4">
+            <h4 className="font-semibold text-gray-900 mb-4">{title}</h4>
+            <div className="space-y-3">
+                {data.map((item, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                        <div className="w-16 text-sm text-gray-600">{item.month}</div>
+                        <div className="flex-1 bg-gray-200 rounded-full h-2">
+                            <div 
+                                className="bg-blue-600 h-2 rounded-full" 
+                                style={{ width: `${(item.matches / Math.max(...data.map(d => d.matches))) * 100}%` }}
+                            ></div>
+                        </div>
+                        <div className="w-12 text-sm font-medium text-gray-900">{item.matches}</div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+
+    // Transparency Chart Component
+    const TransparencyChart = ({ metrics }) => (
+        <div className="bg-white rounded-lg p-6">
+            <h4 className="font-semibold text-gray-900 mb-6 flex items-center">
+                <Eye className="h-5 w-5 mr-2 text-blue-600" />
+                Algorithm Transparency Metrics
+            </h4>
+            <div className="grid grid-cols-2 gap-6">
+                {Object.entries(metrics).map(([key, value]) => (
+                    <div key={key} className="text-center">
+                        <div className="relative w-24 h-24 mx-auto mb-3">
+                            <svg className="w-24 h-24 transform -rotate-90" viewBox="0 0 36 36">
+                                <path
+                                    d="m18,2.0845 a 15.9155,15.9155 0 0,1 0,31.831 a 15.9155,15.9155 0 0,1 0,-31.831"
+                                    fill="none"
+                                    stroke="#e5e7eb"
+                                    strokeWidth="2"
+                                />
+                                <path
+                                    d="m18,2.0845 a 15.9155,15.9155 0 0,1 0,31.831 a 15.9155,15.9155 0 0,1 0,-31.831"
+                                    fill="none"
+                                    stroke={value >= 80 ? "#10b981" : value >= 60 ? "#f59e0b" : "#ef4444"}
+                                    strokeWidth="2"
+                                    strokeDasharray={`${value}, 100`}
+                                />
+                            </svg>
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <span className={`text-lg font-bold ${getHealthColor(value)}`}>
+                                    {value}%
+                                </span>
+                            </div>
+                        </div>
+                        <p className="text-sm font-medium text-gray-900 capitalize">
+                            {key.replace(/([A-Z])/g, ' $1').trim()}
+                        </p>
+                        <p className={`text-xs mt-1 ${getHealthColor(value)}`}>
+                            {value >= 80 ? 'Excellent' : value >= 60 ? 'Good' : 'Needs Attention'}
+                        </p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+
+    // Student Dashboard Component (unchanged)
     const StudentDashboard = () => {
         const studentMetrics = [
             {
@@ -228,7 +338,7 @@ const Dashboard = () => {
         );
     };
 
-    // Company Dashboard Component
+    // Company Dashboard Component (unchanged from original)
     const CompanyDashboard = () => {
         const companyMetrics = [
             {
@@ -442,6 +552,241 @@ const Dashboard = () => {
         );
     };
 
+    // Admin Dashboard Component
+    const AdminDashboard = () => {
+        const adminMetrics = [
+            {
+                icon: <Users className="h-6 w-6" />,
+                label: 'Total Students',
+                value: adminData.systemMetrics.totalStudents.toLocaleString(),
+                color: 'text-blue-600',
+                bg: 'bg-blue-100'
+            },
+            {
+                icon: <Building2 className="h-6 w-6" />,
+                label: 'Active Companies',
+                value: adminData.systemMetrics.totalCompanies,
+                color: 'text-purple-600',
+                bg: 'bg-purple-100'
+            },
+            {
+                icon: <Activity className="h-6 w-6" />,
+                label: 'Active Applications',
+                value: adminData.systemMetrics.activeApplications.toLocaleString(),
+                color: 'text-green-600',
+                bg: 'bg-green-100'
+            },
+            {
+                icon: <CheckCircle className="h-6 w-6" />,
+                label: 'Successful Matches',
+                value: adminData.systemMetrics.successfulMatches.toLocaleString(),
+                color: 'text-orange-600',
+                bg: 'bg-orange-100'
+            }
+        ];
+
+        return (
+            <div className="space-y-8">
+                {/* Header */}
+                <div className="text-center space-y-4">
+                    <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 flex items-center justify-center">
+                        <Shield className="h-8 w-8 mr-3 text-blue-600" />
+                        Admin Dashboard
+                    </h1>
+                    <p className="text-lg text-gray-600">
+                        System overview, transparency metrics, and allocation analytics
+                    </p>
+                </div>
+
+                {/* System Health Alert */}
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center space-x-3">
+                    <CheckCircle className="h-6 w-6 text-green-600" />
+                    <div>
+                        <p className="font-medium text-green-800">System Status: Operational</p>
+                        <p className="text-sm text-green-600">Uptime: {adminData.systemMetrics.systemUptime}% | All services running normally</p>
+                    </div>
+                </div>
+
+                {/* System Metrics */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {adminMetrics.map((metric, index) => (
+                        <div key={index} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                            <div className="flex items-center justify-between">
+                                <div className="space-y-2">
+                                    <p className="text-sm font-medium text-gray-600">{metric.label}</p>
+                                    <p className="text-2xl font-bold text-gray-900">{metric.value}</p>
+                                </div>
+                                <div className={`p-3 rounded-lg ${metric.bg} ${metric.color}`}>
+                                    {metric.icon}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Transparency & Analytics */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <TransparencyChart metrics={adminData.transparencyMetrics} />
+                    <SimpleBarChart data={adminData.allocationTrends} title="Monthly Allocation Trends" />
+                </div>
+
+                {/* University Performance */}
+                <div className="bg-white rounded-xl shadow-lg">
+                    <div className="p-6 border-b border-gray-200">
+                        <h2 className="text-2xl font-bold text-gray-900 flex items-center">
+                            <GraduationCap className="h-6 w-6 mr-3 text-blue-600" />
+                            University Performance Analytics
+                        </h2>
+                    </div>
+                    <div className="p-6">
+                        <div className="overflow-x-auto">
+                            <table className="w-full">
+                                <thead>
+                                    <tr className="border-b border-gray-200">
+                                        <th className="text-left py-3 px-4 font-semibold text-gray-900">University</th>
+                                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Students</th>
+                                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Placement Rate</th>
+                                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Avg Salary</th>
+                                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Performance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {adminData.universityStats.map((uni, index) => (
+                                        <tr key={index} className="border-b border-gray-100 hover:bg-gray-50">
+                                            <td className="py-3 px-4 font-medium text-gray-900">{uni.name}</td>
+                                            <td className="py-3 px-4 text-gray-600">{uni.students.toLocaleString()}</td>
+                                            <td className="py-3 px-4">
+                                                <span className={`font-medium ${getHealthColor(uni.placements)}`}>
+                                                    {uni.placements}%
+                                                </span>
+                                            </td>
+                                            <td className="py-3 px-4 text-gray-600">{uni.avgSalary}</td>
+                                            <td className="py-3 px-4">
+                                                <div className="flex items-center space-x-2">
+                                                    <div className="w-20 bg-gray-200 rounded-full h-2">
+                                                        <div 
+                                                            className={`h-2 rounded-full ${uni.placements >= 90 ? 'bg-green-600' : uni.placements >= 80 ? 'bg-yellow-600' : 'bg-red-600'}`}
+                                                            style={{ width: `${uni.placements}%` }}
+                                                        ></div>
+                                                    </div>
+                                                    <span className="text-sm text-gray-600">{uni.placements}%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Company Performance */}
+                <div className="bg-white rounded-xl shadow-lg">
+                    <div className="p-6 border-b border-gray-200">
+                        <h2 className="text-2xl font-bold text-gray-900 flex items-center">
+                            <Building2 className="h-6 w-6 mr-3 text-purple-600" />
+                            Company Hiring Analytics
+                        </h2>
+                    </div>
+                    <div className="p-6">
+                        <div className="overflow-x-auto">
+                            <table className="w-full">
+                                <thead>
+                                    <tr className="border-b border-gray-200">
+                                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Company</th>
+                                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Applications</th>
+                                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Hired</th>
+                                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Avg Match Score</th>
+                                        <th className="text-left py-3 px-4 font-semibold text-gray-900">Efficiency</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {adminData.companyStats.map((company, index) => (
+                                        <tr key={index} className="border-b border-gray-100 hover:bg-gray-50">
+                                            <td className="py-3 px-4 font-medium text-gray-900">{company.name}</td>
+                                            <td className="py-3 px-4 text-gray-600">{company.applications.toLocaleString()}</td>
+                                            <td className="py-3 px-4 text-gray-600">{company.hired}</td>
+                                            <td className="py-3 px-4">
+                                                <span className={`font-medium ${getMatchScoreColor(company.avgMatchScore)}`}>
+                                                    {company.avgMatchScore}%
+                                                </span>
+                                            </td>
+                                            <td className="py-3 px-4">
+                                                <div className="flex items-center space-x-2">
+                                                    <div className="w-20 bg-gray-200 rounded-full h-2">
+                                                        <div 
+                                                            className="bg-blue-600 h-2 rounded-full"
+                                                            style={{ width: `${(company.hired / company.applications * 100) * 10}%` }}
+                                                        ></div>
+                                                    </div>
+                                                    <span className="text-sm text-gray-600">
+                                                        {((company.hired / company.applications) * 100).toFixed(1)}%
+                                                    </span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Algorithm Insights */}
+                <div className="bg-white rounded-xl shadow-lg">
+                    <div className="p-6 border-b border-gray-200">
+                        <h2 className="text-2xl font-bold text-gray-900 flex items-center">
+                            <Brain className="h-6 w-6 mr-3 text-green-600" />
+                            AI Algorithm Insights
+                        </h2>
+                    </div>
+                    
+                    <div className="p-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-4">
+                                <h3 className="font-semibold text-gray-900">System Recommendations</h3>
+                                <div className="space-y-3">
+                                    <div className="flex items-start space-x-3 p-3 border border-gray-200 rounded-lg">
+                                        <TrendingUp className="h-5 w-5 text-green-600 mt-1" />
+                                        <div>
+                                            <p className="text-sm font-medium text-gray-900">Improve Match Accuracy</p>
+                                            <p className="text-xs text-gray-600">Consider adding skill assessment tests to improve algorithm accuracy by ~12%</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-start space-x-3 p-3 border border-gray-200 rounded-lg">
+                                        <AlertTriangle className="h-5 w-5 text-yellow-600 mt-1" />
+                                        <div>
+                                            <p className="text-sm font-medium text-gray-900">Bias Detection</p>
+                                            <p className="text-xs text-gray-600">Low bias detected in university preferences. Continue monitoring</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div className="space-y-4">
+                                <h3 className="font-semibold text-gray-900">Data Quality Metrics</h3>
+                                <div className="space-y-3">
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-sm text-gray-600">Profile Completeness</span>
+                                        <span className="text-sm font-medium text-green-600">94.2%</span>
+                                    </div>
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-sm text-gray-600">Data Freshness</span>
+                                        <span className="text-sm font-medium text-green-600">91.8%</span>
+                                    </div>
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-sm text-gray-600">Validation Accuracy</span>
+                                        <span className="text-sm font-medium text-yellow-600">87.3%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
     return (
         <div className="min-h-screen bg-gray-50 p-4 lg:p-8">
             <div className="max-w-7xl mx-auto space-y-8">
@@ -468,11 +813,23 @@ const Dashboard = () => {
                         >
                             Company Dashboard
                         </button>
+                        <button
+                            onClick={() => setUserType('admin')}
+                            className={`px-6 py-2 rounded-md font-medium transition-colors duration-200 ${
+                                userType === 'admin'
+                                    ? 'bg-blue-600 text-white'
+                                    : 'text-gray-600 hover:text-gray-900'
+                            }`}
+                        >
+                            Admin Dashboard
+                        </button>
                     </div>
                 </div>
 
                 {/* Render appropriate dashboard */}
-                {userType === 'student' ? <StudentDashboard /> : <CompanyDashboard />}
+                {userType === 'student' && <StudentDashboard />}
+                {userType === 'company' && <CompanyDashboard />}
+                {userType === 'admin' && <AdminDashboard />}
             </div>
         </div>
     );

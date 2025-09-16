@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import ChatbotPage from './extra/ChatbotPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/chatbot" element={<ChatbotPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Routes>

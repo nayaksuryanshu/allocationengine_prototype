@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Bot, BarChart3, LogIn, UserPlus } from 'lucide-react';
 import logo from '../assets/logo.png';
-// Register link is already implemented in the component below
-// No additional code needed at this placeholder location
+// Remove this line - it's not needed:
+// import ChatbotPage from '../extra/ChatbotPage';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,6 +60,17 @@ const Navbar = () => {
                         >
                             <BarChart3 className="h-4 w-4" />
                             <span>Dashboard</span>
+                        </Link>
+                        <Link 
+                            to="/chatbot" 
+                            className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                                isActive('/chatbot') 
+                                    ? 'bg-blue-100 text-blue-700' 
+                                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
+                            }`}
+                        >
+                            <Bot className="h-4 w-4" />
+                            <span>AI Assistant</span>
                         </Link>
                         <a 
                             href="#about" 
@@ -130,6 +141,18 @@ const Navbar = () => {
                             >
                                 <BarChart3 className="h-4 w-4" />
                                 <span>Dashboard</span>
+                            </Link>
+                            <Link 
+                                to="/chatbot" 
+                                className={`flex items-center space-x-2 px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
+                                    isActive('/chatbot') 
+                                        ? 'bg-blue-100 text-blue-700' 
+                                        : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
+                                }`}
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                <Bot className="h-4 w-4" />
+                                <span>AI Assistant</span>
                             </Link>
                             <a 
                                 href="#about" 
