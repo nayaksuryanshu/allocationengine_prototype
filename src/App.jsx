@@ -7,6 +7,9 @@ import Dashboard from './components/Dashboard';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import ChatbotPage from './extra/ChatbotPage';
+import About from './components/About'; // Add this import
+import Contact from './components/Contact'; // Add this import
+import Communication from './components/communication'; // Import the Communication component
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
             <Route path="/chatbot" element={<ChatbotPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/connect" element={<Communication />} /> {/* Add this route */}
+            <Route path="/about" element={<About />} /> {/* Add this route */}
+            <Route path="/contact" element={<Contact />} /> {/* Add this route */}
           </Routes>
         </main>
         <Footer />

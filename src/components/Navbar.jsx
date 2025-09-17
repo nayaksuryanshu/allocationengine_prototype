@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Bot, BarChart3, LogIn, UserPlus } from 'lucide-react';
+import { Menu, X, Bot, BarChart3, LogIn, UserPlus, MessageCircle } from 'lucide-react';
 import logo from '../assets/logo.png';
-// Remove this line - it's not needed:
-// import ChatbotPage from '../extra/ChatbotPage';
+import Communication from './communication'; // Import the component
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -72,18 +71,33 @@ const Navbar = () => {
                             <Bot className="h-4 w-4" />
                             <span>AI Assistant</span>
                         </Link>
-                        <a 
-                            href="#about" 
-                            className="text-gray-600 hover:text-blue-600 px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100"
+                        <Link 
+                            to="/connect"
+                            className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                                isActive('/connect')
+                                    ? 'bg-blue-100 text-blue-700'
+                                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
+                            }`}
+                        >
+                            <MessageCircle className="h-4 w-4" />
+                            <span>Connect</span>
+                        </Link>
+                        <Link 
+                            to="/about"
+                            className={`text-gray-600 hover:text-blue-600 px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100 ${
+                                isActive('/about') ? 'bg-blue-100 text-blue-700' : ''
+                            }`}
                         >
                             About
-                        </a>
-                        <a 
-                            href="#contact" 
-                            className="text-gray-600 hover:text-blue-600 px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100"
+                        </Link>
+                        <Link 
+                            to="/contact"
+                            className={`text-gray-600 hover:text-blue-600 px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100 ${
+                                isActive('/contact') ? 'bg-blue-100 text-blue-700' : ''
+                            }`}
                         >
                             Contact
-                        </a>
+                        </Link>
                         <Link 
                             to="/login" 
                             className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
@@ -154,20 +168,36 @@ const Navbar = () => {
                                 <Bot className="h-4 w-4" />
                                 <span>AI Assistant</span>
                             </Link>
-                            <a 
-                                href="#about" 
-                                className="text-gray-600 hover:text-blue-600 px-4 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100"
+                            <Link 
+                                to="/connect"
+                                className={`flex items-center space-x-2 px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
+                                    isActive('/connect')
+                                        ? 'bg-blue-100 text-blue-700'
+                                        : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
+                                }`}
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                <MessageCircle className="h-4 w-4" />
+                                <span>Connect</span>
+                            </Link>
+                            <Link 
+                                to="/about"
+                                className={`text-gray-600 hover:text-blue-600 px-4 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100 ${
+                                    isActive('/about') ? 'bg-blue-100 text-blue-700' : ''
+                                }`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 About
-                            </a>
-                            <a 
-                                href="#contact" 
-                                className="text-gray-600 hover:text-blue-600 px-4 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100"
+                            </Link>
+                            <Link 
+                                to="/contact"
+                                className={`text-gray-600 hover:text-blue-600 px-4 py-3 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100 ${
+                                    isActive('/contact') ? 'bg-blue-100 text-blue-700' : ''
+                                }`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Contact
-                            </a>
+                            </Link>
                             <Link 
                                 to="/login" 
                                 className={`flex items-center space-x-2 px-4 py-3 rounded-lg font-medium transition-all duration-200 ${

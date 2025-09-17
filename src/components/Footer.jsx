@@ -96,7 +96,7 @@ const Footer = () => {
               <p className="text-gray-400 text-sm mb-2">Built with</p>
               <div className="flex items-center space-x-2">
                 <span className="text-red-500">❤️</span>
-                <span className="text-gray-400 text-sm">for SIH 2024</span>
+                <span className="text-gray-400 text-sm">for SIH 2025</span>
               </div>
             </div>
           </div>
